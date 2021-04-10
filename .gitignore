@@ -1,0 +1,6 @@
+/.vim/black
+/.vim/plugged
+/.vim/.netrwhist
+
+/filetypes/*
+!/filetypes/Makefile

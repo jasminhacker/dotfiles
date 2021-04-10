@@ -1,0 +1,5 @@
+--smart-case
+--ignore-dir=.venv
+--ignore-dir=.idea
+--ignore-dir=node_modules
+

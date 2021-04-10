@@ -1,0 +1,32 @@
+# IntelliJ
+.idea/
+*.iml
+cmake-build-debug
+
+# Python virtualenv
+.venv/
+
+# Latex
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb
+
+# vim
+*.swp
+
+# texstudio
+*.txss
+
+# node
+node_modules
+
+# yarn
+yarn.lock
+yarn-error.log
