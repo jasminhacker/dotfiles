@@ -30,12 +30,13 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $tmux
-bindsym $mod+Shift+Return exec $terminal
+bindsym $mod+Ctrl+Return exec $terminal
+bindsym $mod+Shift+Return exec "~/.i3/scratchpad_exists.py && gnome-terminal -e tmux --title 'scratchpad-terminal'; i3-msg 'scratchpad show'"
+for_window [instance="gnome-terminal" title="scratchpad-terminal"] floating enable, move scratchpad-terminal;
 
 # kill focused window
 bindsym $mod+Shift+x kill
 
-# TODO: nice, fzf?
 bindsym $mod+a exec "rofi -combi-modi drun,run,ssh -theme gruvbox-dark -show combi"
 
 # change focus
@@ -187,12 +188,8 @@ bindsym $mod+h exec thunar
 bindsym $mod+f exec firefox
 bindsym $mod+m exec thunderbird
 
-# screenlayout selector
-# TODO: fzf?
-bindsym $mod+o exec ls -1 .screenlayout/ | sed -e '/.sh/ !d' -e 's/.sh//' | dmenu -p "Select monitor configuration:" -nb "$inactive-bg-color" -sb "$bg-color" | sed -e 's/^/.\/.screenlayout\//' -e 's/$/.sh/' | xargs /bin/sh
-
 # show a blurred version of the desktop as a lock screen
-set $Locker scrot /tmp/screen.png && convert -blur 0x8 /tmp/screen.png /tmp/blur.png && i3lock -i /tmp/blur.png
+set $Locker sleep 0.01 && scrot --overwrite /tmp/screen.png && convert -blur 0x8 /tmp/screen.png /tmp/blur.png && i3lock -i /tmp/blur.png
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -267,7 +264,6 @@ exec --no-startup-id nm-applet
 
 # apply xkb settings
 exec_always --no-startup-id ~/.dotfiles/scripts/keyboard_update.sh XIDeviceEnabled 0 XISlaveKeyboard
-# TODO: test
 # watch for new keyboards
 exec --no-startup-id inputplug -c ~/.dotfiles/scripts/keyboard_update.sh
 
@@ -276,10 +272,6 @@ exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep To
 # increase touch pad speed
 exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep Touchpad)" "libinput Accel Speed" 1
 
-exec ~/.dotfiles/scripts/display_update.sh
-
 # start terminal and firefox on boot on their respective workspaces
-# TODO: test gtk
-# wait a second before starting firefox so it uses the current gtk
 exec --no-startup-id i3-msg 'workspace $workspace2; exec firefox; workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace1; exec $tmux; workspace $workspace1'

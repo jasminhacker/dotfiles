@@ -12,7 +12,7 @@ if [ -n "$X" ]; then
 	mv themes/.themes .dotfiles/
 	mv themes/.icons .dotfiles/
 	rm -rf themes
-	sudo apt install -y autorandr feh fonts-font-awesome i3 i3blocks i3lock inputplug light lm-sensors scrot vim-gtk xcompmgr
+	sudo apt install -y autorandr feh fonts-cantarell fonts-font-awesome i3 i3blocks i3lock inputplug light lm-sensors scrot vim-gtk xcompmgr
 fi
 
 # chsh would ask for password again -> use sudo

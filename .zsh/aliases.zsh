@@ -50,7 +50,7 @@ alias update='sudo apt update && sudo apt upgrade'
 alias sc='systemctl'
 alias systemctl='sudo systemctl'
 alias scs='\systemctl status' # doesn't need root
-alias scr='systemctl reload-or-restart'
+alias scr='systemctl restart'
 alias scu='systemctl start' # up
 alias scd='systemctl stop' # down
 

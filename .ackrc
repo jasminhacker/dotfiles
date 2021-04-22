@@ -2,4 +2,5 @@
 --ignore-dir=.venv
 --ignore-dir=.idea
 --ignore-dir=node_modules
+--ignore-dir=.mypy_cache
 
