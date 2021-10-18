@@ -5,7 +5,7 @@ if command -v xset &> /dev/null && xset q &> /dev/null; then
 fi
 
 # install dependencies
-sudo apt install -y git htop openvpn tmux vim xclip zsh
+sudo apt install -y ack git htop openvpn tmux vim xclip zsh
 git clone https://github.com/jonathanhacker/dotfiles .dotfiles
 if [ -n "$X" ]; then
 	git clone https://github.com/jonathanhacker/themes

@@ -35,7 +35,7 @@ END {
 		print "#cc241d"
 	else if (free/total < 0.25)
 		print "#fabd2f"
-	else
+	#else
 		#print "#8ec07c"
 }
 ' /proc/meminfo

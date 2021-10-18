@@ -20,6 +20,7 @@ local white='8'
 # orange is the exception, as it is not part of the 16 colors.
 # we use its extended 256 color.
 # https://web.archive.org/web/20120905043337/http://lucentbeing.com/blog/that-256-color-thing
+# https://gist.github.com/MicahElliott/719710
 local orange='8;5;208'
 # color + 30 = foreground
 # color + 40 = background

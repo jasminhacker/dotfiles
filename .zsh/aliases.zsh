@@ -64,7 +64,7 @@ alias -g L="| less"
 alias -g H="| head"
 alias -g T="| tail"
 # run tasks in background
-alias -g bg="&>/dev/null"
+alias -g bg=">/dev/null &"
 
 alias ff='firefox'
 alias py='python3'

@@ -21,8 +21,8 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'lepture/vim-jinja'
 
 " syntax coloring for shader files
-"Plug 'tikhomirov/vim-glsl'
-"autocmd! BufNewFile,BufRead *.vs,*.fs,*.shader set ft=glsl
+Plug 'tikhomirov/vim-glsl'
+autocmd! BufNewFile,BufRead *.vs,*.fs,*.shader set ft=glsl
 
 " syntax coloring for qml files
 "Plug 'peterhoeg/vim-qml'
@@ -30,6 +30,11 @@ Plug 'lepture/vim-jinja'
 " YouCompleteMe is memory and cpu intensive,
 " substitute with a more lightweight alternative tab completion
 Plug 'ackyshake/VimCompletesMe'
+" use shift-tab for completion, no backward completion
+let g:vcm_default_maps = 0
+" TODO
+inoremap <S-Tab> vim_completes_me_forward
+"let vim_completes_me_backward
 
 "Plug 'Valloric/YouCompleteMe'
 "" use a global config to squelch prompts
