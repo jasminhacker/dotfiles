@@ -51,6 +51,13 @@ source ~/.zsh/completion.zsh
 # syntax highlighting in the command line
 source ~/.zsh/zsh-syntax-highlighting.zsh
 
+# escape urls when pasting
+# disabled because it prevents immediate syntax coloring
+#autoload -Uz bracketed-paste-magic
+#zle -N bracketed-paste bracketed-paste-magic
+#autoload -Uz url-quote-magic
+#zle -N self-insert url-quote-magic
+
 # zsh history substring search plugin
 # has to be sourced after syntax highlighting
 source ~/.zsh/zsh-history-substring-search.zsh

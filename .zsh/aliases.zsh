@@ -69,6 +69,12 @@ alias -g bg=">/dev/null &"
 alias ff='firefox'
 alias py='python3'
 
+# don't interpret extras ('[]') as a pattern
+alias pip='noglob pip'
+alias pip3='noglob pip3'
+# don't interpret url query parameters ('?') as a pattern
+alias youtube-dl='noglob youtube-dl'
+
 # 256 colorsupport for tmux
 #alias tmux='tmux -2'
 alias tma='tmux attach'

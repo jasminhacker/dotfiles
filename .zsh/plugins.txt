@@ -4,6 +4,9 @@ wget https://raw.githubusercontent.com/zsh-users/zsh-autosuggestions/master/zsh-
 https://github.com/zsh-users/zsh-history-substring-search
 wget https://raw.githubusercontent.com/zsh-users/zsh-history-substring-search/master/zsh-history-substring-search.zsh
 
+https://github.com/zsh-users/zsh/blob/master/Functions/Zle/url-quote-magic
+wget https://raw.githubusercontent.com/zsh-users/zsh/master/Functions/Zle/url-quote-magic
+
 https://github.com/zsh-users/zsh-syntax-highlighting
 wget https://raw.githubusercontent.com/zsh-users/zsh-syntax-highlighting/master/zsh-syntax-highlighting.zsh
 edit ZSH_HIGHLIGHT_VERSION and ZSH_HIGHLIGHT_REVISION
