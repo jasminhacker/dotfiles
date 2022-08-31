@@ -76,6 +76,7 @@ bindkey '^T' history-incremental-search-forward
 stty -ixon
 
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/Documents/bin"
 
 # hack to make Home/End keys work in tmux

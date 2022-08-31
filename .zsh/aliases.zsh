@@ -51,12 +51,15 @@ alias sc='systemctl'
 alias systemctl='sudo systemctl'
 alias scs='\systemctl status' # doesn't need root
 alias scr='systemctl restart'
+alias scrl='systemctl reload'
 alias scu='systemctl start' # up
 alias scd='systemctl stop' # down
 
 # repair typos
 alias 1ake=make
 alias maek=make
+alias :q=exit
+alias q:=exit
 
 # shorten pipe commands
 alias -g G="| grep"
@@ -64,16 +67,17 @@ alias -g L="| less"
 alias -g H="| head"
 alias -g T="| tail"
 # run tasks in background
-alias -g bg=">/dev/null &"
+alias -g bg="2>&1 >/dev/null &"
 
 alias ff='firefox'
 alias py='python3'
 
 # don't interpret extras ('[]') as a pattern
-alias pip='noglob pip'
-alias pip3='noglob pip3'
+#alias pip='noglob pip'
+#alias pip3='noglob pip3'
 # don't interpret url query parameters ('?') as a pattern
 alias youtube-dl='noglob youtube-dl'
+alias yt-dlp='noglob yt-dlp'
 
 # 256 colorsupport for tmux
 #alias tmux='tmux -2'

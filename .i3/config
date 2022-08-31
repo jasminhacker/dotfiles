@@ -94,6 +94,9 @@ bindsym $mod+u focus parent
 # focus the child container
 bindsym $mod+i focus child
 
+# always on top
+bindsym $mod+w sticky toggle
+
 # interactive screenshots
 bindsym --release $mod+shift+s exec scrot -s '%Y%m%d-%H%M%S.png' -e 'mv $f ~/Pictures/Screenshots/'
 
@@ -213,7 +216,9 @@ bindsym $mod+shift+i border toggle
 focus_on_window_activation none
 
 assign [class="^Thunderbird$"] $workspace5
+assign [class="^Discord$"] $workspace5
 for_window [title="^Raveberry$"] floating enable
+for_window [title="^Visualization$"] floating enable
 # for_window [title="^Title$"] floating enable
 # for_window [title="^Title$"] floating enable move absolute position 0 px 0 px
 
@@ -278,5 +283,3 @@ exec_always --no-startup-id xinput set-prop "$(xinput list --name-only | grep To
 # start terminal and firefox on boot on their respective workspaces
 exec --no-startup-id i3-msg 'workspace $workspace2; exec firefox; workspace $workspace1'
 exec --no-startup-id i3-msg 'workspace $workspace1; exec $tmux; workspace $workspace1'
-
-bindsym $mod+w sticky toggle
