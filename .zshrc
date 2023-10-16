@@ -1,14 +1,14 @@
 # https://web.archive.org/web/20170512092443/https://stackoverflow.com/questions/171563/whats-in-your-zshrc
 
 # use gruvbox scheme in the shell
-source "$HOME/.dotfiles/gruvbox_256palette.sh"
+#source "$HOME/.dotfiles/gruvbox_256palette.sh"
 
 # in ssh sessions, automatically enter a tmux session
 # attach to the existing one if present
 # prevent this behavior by setting NO_TMUX
 # https://unix.stackexchange.com/a/113768
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$NO_TMUX" ]; then
+	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$NO_TMUX" ] && [ -z "$IN_VSCODE" ]; then
 		exec tmux new-session -A -s main
 	fi
 fi
@@ -89,3 +89,7 @@ bindkey '[4~' end-of-line
 
 # make intellij work on sway
 #export _JAVA_AWT_WM_NONREPARENTING=1
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

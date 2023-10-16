@@ -106,3 +106,6 @@ autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 expandtab
 
 " Ansible syntax highlighting for all yaml files
 autocmd BufNewFile,BufRead *.yaml,*.yml set ft=ansible
+
+" nginx config
+au BufRead,BufNewFile /etc/nginx/*,/etc/nginx/conf.d/*,/usr/local/nginx/conf/*,*/conf/nginx.conf,*.nginx.conf if &ft == '' | setfiletype nginx | endif

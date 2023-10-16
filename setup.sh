@@ -1,18 +1,33 @@
 #!/bin/bash
 
+# TODO
+# fix firefox updating
+# https://askubuntu.com/questions/1387081/firefox-notify-me-before-update
+# install python3-psutil
+
+# tlp install
+# sudo apt install tlp tlp-rdw
+# sudo systemctl enable tlp
+# in /etc/tlp.conf, uncomment
+# START_CHARGE_THRESH_BAT0=75
+# STOP_CHARGE_THRESH_BAT0=80
+# RESTORE_THRESHOLDS_ON_BAT=1
+
+# echo  -n  "1" | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode > /dev/null
+
 if command -v xset &> /dev/null && xset q &> /dev/null; then
 	X=1
 fi
 
 # install dependencies
 sudo apt install -y ack git htop openvpn tmux vim xclip zsh
-git clone https://github.com/jonathanhacker/dotfiles .dotfiles
+git clone https://github.com/jasminhacker/dotfiles .dotfiles
 if [ -n "$X" ]; then
-	git clone https://github.com/jonathanhacker/themes
+	git clone https://github.com/jasminhacker/themes
 	mv themes/.themes .dotfiles/
 	mv themes/.icons .dotfiles/
 	rm -rf themes
-	sudo apt install -y autorandr feh fonts-cantarell fonts-font-awesome i3 i3blocks i3lock inputplug light lm-sensors scrot vim-gtk xcompmgr
+	sudo apt install -y autorandr feh fonts-cantarell fonts-font-awesome i3 i3blocks i3lock inputplug light lm-sensors rofi scrot thunar vim-gtk xcompmgr
 fi
 
 # chsh would ask for password again -> use sudo
@@ -63,7 +78,7 @@ if [ -n "$X" ]; then
 	ln -fs ~/.vimrc ~/.ideavimrc
 	ln -fs ~/.dotfiles/.i3 ~/
 	ln -fs ~/.dotfiles/.icons ~/
-	ln -fs ~/.dotfiles/.themes ~/
+	#ln -fs ~/.dotfiles/.themes ~/
 
 	# themes generated like this:
 	#wget -O /tmp/oomox.deb https://github.com/themix-project/oomox/releases/download/1.13.3/oomox_1.13.3_18.10+.deb
@@ -72,8 +87,8 @@ if [ -n "$X" ]; then
 	#oomox-archdroid-icons-cli ~/.dotfiles/gruvbox.oomox -o gruvbox
 
 	# set gtk and icon theme
-	gsettings set org.gnome.desktop.interface gtk-theme gruvbox
-	gsettings set org.gnome.desktop.interface icon-theme gruvbox
+	#gsettings set org.gnome.desktop.interface gtk-theme gruvbox
+	#gsettings set org.gnome.desktop.interface icon-theme gruvbox
 
 	# set terminal font
 	gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 13'

@@ -55,6 +55,8 @@ alias scrl='systemctl reload'
 alias scu='systemctl start' # up
 alias scd='systemctl stop' # down
 
+alias cal='ncal -b'
+
 # repair typos
 alias 1ake=make
 alias maek=make
@@ -67,10 +69,11 @@ alias -g L="| less"
 alias -g H="| head"
 alias -g T="| tail"
 # run tasks in background
-alias -g bg="2>&1 >/dev/null &"
+alias -g bg=">/dev/null 2>&1 &"
 
 alias ff='firefox'
 alias py='python3'
+alias venv='[ -d .venv ] || python3 -m venv .venv; . .venv/bin/activate'
 
 # don't interpret extras ('[]') as a pattern
 #alias pip='noglob pip'
@@ -86,20 +89,20 @@ alias tma='tmux attach'
 alias loadnvm='export NVM_DIR="$HOME/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"'
 
 c(){
-	local file=$1
+	local file="$1"
 	gcc -g -std=c11 -pedantic -Wall -Wextra "$file" -o "${file%.*}"
 }
 
 
 c++(){
-	local file=$1
+	local file="$1"
 	g++ -g -std=c++17 -Wall -Wextra "$file" -o "${file%.*}"
 }
 
 jav(){
-	local file=$1
-	javac $1
-	java ${file%.*}
+	local file="$1"
+	javac "$1"
+	java "${file%.*}"
 }
 
 baressh(){
@@ -107,3 +110,7 @@ baressh(){
 	ssh $@ -t NO_TMUX=1 /bin/zsh
 }
 
+wav2mp3(){
+	local file="$1"
+	ffmpeg -i "$file" -vn -ar 44100 -ac 2 -b:a 192k "${file%.*}.mp3"
+}

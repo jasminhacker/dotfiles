@@ -94,11 +94,11 @@ bindsym $mod+u focus parent
 # focus the child container
 bindsym $mod+i focus child
 
-# always on top
+# always on top, e.g. for youtube popouts
 bindsym $mod+w sticky toggle
 
 # interactive screenshots
-bindsym --release $mod+shift+s exec scrot -s '%Y%m%d-%H%M%S.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release $mod+shift+s exec scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
 
 set $workspace1 "1:"
 set $workspace2 "2:"
@@ -176,6 +176,7 @@ bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle 
 #bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/toggletouchpad.sh
 
 # brightness controls
+# if it does not work: sudo chmod +s /usr/bin/light
 bindsym XF86MonBrightnessUp exec light -T 1.15
 bindsym XF86MonBrightnessDown exec light -T 0.85
 
@@ -190,6 +191,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+h exec thunar
 bindsym $mod+f exec firefox
 bindsym $mod+m exec thunderbird
+bindsym $mod+g exec /home/jasmin/Documents/bin/cycle_sound_output
 
 # show a blurred version of the desktop as a lock screen
 set $Locker sleep 0.01 && scrot --overwrite /tmp/screen.png && convert -blur 0x8 /tmp/screen.png /tmp/blur.png && i3lock -i /tmp/blur.png
@@ -215,8 +217,9 @@ bindsym $mod+shift+i border toggle
 # don't focus new windows
 focus_on_window_activation none
 
-assign [class="^Thunderbird$"] $workspace5
-assign [class="^Discord$"] $workspace5
+assign [class="^thunderbird$"] $workspace5
+assign [class="^discord$"] $workspace5
+for_window [class="^Spotify$"] move to workspace $workspace5
 for_window [title="^Raveberry$"] floating enable
 for_window [title="^Visualization$"] floating enable
 # for_window [title="^Title$"] floating enable
@@ -259,9 +262,9 @@ exec xcompmgr -c -f -I 0.07 -O 0.07 -o 0 -r 0
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 
 # disable screen timeout
-#exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset s off
 # disable screen timeout and power management
-#exec_always --no-startup-id xset s off -dpms
+exec_always --no-startup-id xset s off -dpms
 
 # network manager applet
 exec --no-startup-id nm-applet
